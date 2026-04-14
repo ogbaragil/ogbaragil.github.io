@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compassionate Disability Support Services</title>
-  <meta name="description" content="Trusted disability support services focused on independence, dignity, and personalised care." />
+  <title>Life's Good Disability Services</title>
+  <meta name="description" content="Registered NDIS provider offering personalised disability support services including community access, in-home support, and supported independent living." />
   <style>
     :root {
-      --bg: #f7faf9;
+      --bg: #f5f7fb;
       --surface: #ffffff;
-      --text: #1f2937;
-      --muted: #4b5563;
-      --primary: #0f766e;
-      --primary-dark: #115e59;
-      --border: #dbe4e1;
-      --shadow: 0 10px 30px rgba(15, 118, 110, 0.08);
-      --radius: 18px;
-      --max: 1100px;
+      --text: #111827;
+      --muted: #5b6474;
+      --line: #e5e7eb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --green: #34d399;
+      --gradient-a: #2563eb;
+      --gradient-b: #3ddc97;
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --radius: 22px;
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
@@ -29,6 +33,7 @@
       line-height: 1.6;
     }
 
+    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
     .container {
@@ -36,178 +41,353 @@
       margin: 0 auto;
     }
 
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      flex-wrap: wrap;
+    }
+
     header {
       position: sticky;
       top: 0;
-      background: rgba(247, 250, 249, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(219, 228, 225, 0.8);
       z-index: 20;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229,231,235,0.9);
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
+      align-items: center;
       gap: 1rem;
+      padding: 1rem 0;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gradient-a), var(--gradient-b));
+      color: #fff;
+      display: grid;
+      place-items: center;
       font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--primary-dark);
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.15rem;
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
       align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      color: var(--muted);
       font-weight: 600;
+      color: #374151;
     }
 
     .button {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 0.9rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.25rem;
       border-radius: 999px;
       font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: #fff;
       box-shadow: var(--shadow);
     }
 
+    .button.primary:hover { background: var(--primary-dark); }
+
     .button.secondary {
+      border-color: #cbd5e1;
+      color: #fff;
       background: transparent;
+    }
+
+    .button.light {
+      border-color: var(--line);
+      background: #fff;
       color: var(--primary-dark);
-      border: 1px solid var(--border);
-      box-shadow: none;
     }
 
     .hero {
-      padding: 5rem 0 4rem;
+      position: relative;
+      color: #fff;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.45)),
+        url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
+    .hero-content {
+      width: min(100%, 760px);
+      padding: 5rem 0;
     }
 
     .eyebrow {
       display: inline-block;
-      background: #dff4f1;
-      color: var(--primary-dark);
-      padding: 0.4rem 0.75rem;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.25);
       border-radius: 999px;
-      font-size: 0.9rem;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.92rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
 
-    h1, h2, h3 {
-      line-height: 1.15;
-      margin: 0 0 1rem;
-    }
-
-    h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
-    h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
-    h3 { font-size: 1.2rem; }
+    h1, h2, h3 { line-height: 1.14; margin: 0 0 1rem; }
+    h1 { font-size: clamp(2.6rem, 5vw, 4.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); text-align: center; }
+    h3 { font-size: 1.55rem; }
 
     .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 62ch;
+      font-size: 1.1rem;
+      max-width: 60ch;
+      color: rgba(255,255,255,0.92);
     }
 
     .hero-actions {
       display: flex;
-      gap: 0.9rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-top: 1.75rem;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card ul,
-    .contact-list,
-    .service-list,
-    .trust-list {
-      padding-left: 1.1rem;
-      margin: 0;
-    }
-
-    section {
-      padding: 2rem 0 4rem;
-    }
+    section { padding: 5rem 0; }
 
     .section-head {
-      max-width: 62ch;
-      margin-bottom: 1.5rem;
+      max-width: 760px;
+      margin: 0 auto 2.25rem;
+      text-align: center;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 0;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .service-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #dbeafe;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+      display: inline-block;
     }
 
     .muted { color: var(--muted); }
 
-    .contact-box {
+    .feature-list,
+    .contact-list,
+    .footer-links,
+    .social-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-list li,
+    .contact-list li,
+    .footer-links li {
+      margin-bottom: 0.7rem;
+      color: var(--muted);
+    }
+
+    .ticks li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 900;
+      margin-right: 0.6rem;
+    }
+
+    .why-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .why-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 420px;
+      background: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .why-points {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .point h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .point p { margin: 0; color: var(--muted); }
+
+    .testimonials .card-body {
+      min-height: 250px;
+    }
+
+    .stars {
+      color: #facc15;
+      letter-spacing: 1px;
+      margin-bottom: 0.9rem;
+      font-size: 1.05rem;
+    }
+
+    .quote {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .cta {
+      background: linear-gradient(90deg, var(--gradient-a), var(--gradient-b));
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta h2 { color: #fff; }
+    .cta p {
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.94);
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
       gap: 1rem;
-      align-items: start;
-    }
-
-    form {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.95rem 1rem;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      font: inherit;
-      background: #fff;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
+      flex-wrap: wrap;
     }
 
     footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.95rem;
+      background: #0f1115;
+      color: #fff;
+      padding: 4rem 0 2rem;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-brand p,
+    .footer-links a,
+    .contact-list li,
+    .footer-note {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .footer-links a:hover,
+    .contact-list a:hover { color: #fff; }
+
+    .social-list {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-list a {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.09);
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
       .grid-3,
       .grid-2,
-      .contact-box {
+      .why-wrap,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
@@ -215,128 +395,248 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero { min-height: 500px; }
+      .why-image { min-height: 300px; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner { flex-direction: column; }
+      .nav-links a:not(.button) { display: none; }
+      h1 { font-size: 2.4rem; }
+      section { padding: 4rem 0; }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Registered NDIS Provider</div>
+      <div>hola@lgds.com.au · Monday - Friday | 8am - 6pm</div>
+    </div>
+  </div>
+
   <header>
     <div class="container nav">
-      <a href="#top" class="brand">Your Business Name</a>
+      <a href="#top" class="brand">
+        <div class="brand-mark">LG</div>
+        <div class="brand-text">
+          <strong>Life's Good</strong>
+          <span>Disability Services</span>
+        </div>
+      </a>
       <nav class="nav-links">
+        <a href="#top">Home</a>
         <a href="#services">Services</a>
-        <a href="#about">About</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
-        <a href="#contact" class="button">Get in Touch</a>
+        <a href="#contact" class="button primary">Contact Us</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Disability Support Provider</span>
-          <h1>Compassionate, personalised support that puts people first.</h1>
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Personalised disability support services</span>
+          <h1>Support that puts independence, dignity, and real connection first.</h1>
           <p>
-            We provide respectful, reliable disability support services designed to help participants live with greater independence, dignity, and confidence.
+            Life's Good Disability Services provides compassionate, person-centred support tailored to each participant’s goals, routines, and way of life.
           </p>
           <div class="hero-actions">
-            <a href="#contact" class="button">Request a Call Back</a>
-            <a href="tel:0400000000" class="button secondary">Call 0400 000 000</a>
+            <a href="#contact" class="button primary">Get Started</a>
+            <a href="tel:0450696350" class="button secondary">Call 0450 696 350</a>
           </div>
         </div>
-
-        <aside class="card hero-card">
-          <h3>How we can support you</h3>
-          <ul class="trust-list muted">
-            <li>Personal care and daily living support</li>
-            <li>Community access and social participation</li>
-            <li>Transport assistance</li>
-            <li>Flexible support tailored to individual needs</li>
-          </ul>
-        </aside>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <h2>Our services</h2>
-          <p class="muted">A simple starting layout you can customise around the exact services your business provides.</p>
+          <h2>Our Core Services</h2>
+          <p>Comprehensive disability support services tailored to your individual needs and goals.</p>
         </div>
+
         <div class="grid-3">
           <article class="card">
-            <h3>Daily Living Support</h3>
-            <p class="muted">Support with routines, personal care, meal preparation, and everyday tasks.</p>
+            <img class="service-image" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="People enjoying community activities together" />
+            <div class="card-body">
+              <span class="icon">👥</span>
+              <h3>Community Access</h3>
+              <p class="muted">Helping individuals engage with their community through meaningful social connections and recreational activities.</p>
+              <ul class="feature-list ticks">
+                <li>Social outings and recreational activities</li>
+                <li>Skill-building workshops</li>
+                <li>Community event participation</li>
+                <li>Group activities and clubs</li>
+              </ul>
+            </div>
           </article>
+
           <article class="card">
-            <h3>Community Participation</h3>
-            <p class="muted">Helping participants engage in community activities, appointments, and social outings.</p>
+            <img class="service-image" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80" alt="In-home support and daily living assistance" />
+            <div class="card-body">
+              <span class="icon">🏠</span>
+              <h3>In-Home Support</h3>
+              <p class="muted">Comprehensive assistance with daily living tasks in the comfort and familiarity of your own home.</p>
+              <ul class="feature-list ticks">
+                <li>Personal care assistance</li>
+                <li>Meal preparation and planning</li>
+                <li>Household management</li>
+                <li>Administrative support</li>
+              </ul>
+            </div>
           </article>
+
           <article class="card">
-            <h3>Transport Assistance</h3>
-            <p class="muted">Safe and dependable support getting to appointments, programs, and activities.</p>
+            <img class="service-image" src="https://images.unsplash.com/photo-1469571486292-b53601010376?auto=format&fit=crop&w=900&q=80" alt="Supported independent living support" />
+            <div class="card-body">
+              <span class="icon">🗝️</span>
+              <h3>Supported Independent Living</h3>
+              <p class="muted">Empowering individuals to live independently with personalised support plans tailored to their unique needs.</p>
+              <ul class="feature-list ticks">
+                <li>Tailored support plans</li>
+                <li>24/7 on-call assistance</li>
+                <li>Independence skill development</li>
+                <li>Goal-oriented support</li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container grid-2">
-        <div class="card">
-          <h2>Why families choose us</h2>
-          <ul class="service-list muted">
-            <li>Respectful, person-centred approach</li>
-            <li>Clear communication with participants and families</li>
-            <li>Consistent, dependable support workers</li>
-            <li>Focus on dignity, safety, and independence</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>About our team</h2>
-          <p class="muted">
-            Replace this section with a short introduction about your business, your mission, your experience, and the areas you serve.
-          </p>
-          <p class="muted">
-            Example: “We are committed to providing high-quality, compassionate disability support services for participants and families across Melbourne.”
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
+    <section id="why">
       <div class="container">
         <div class="section-head">
-          <h2>Contact us</h2>
-          <p class="muted">For now, this form is visual only. Until we connect a real form service, your phone and email are the main contact methods.</p>
+          <h2>Why Choose Life's Good?</h2>
+          <p>What makes us different is our commitment to genuine relationships and personalised care that puts you first.</p>
         </div>
-        <div class="contact-box">
-          <div class="card">
-            <h3>Get in touch</h3>
-            <p class="muted">Use your real business details here.</p>
-            <ul class="contact-list muted">
-              <li><strong>Phone:</strong> 0400 000 000</li>
-              <li><strong>Email:</strong> hello@yourbusiness.com.au</li>
-              <li><strong>Location:</strong> Melbourne, Victoria</li>
-            </ul>
+
+        <div class="why-wrap">
+          <div class="why-image" aria-hidden="true"></div>
+          <div class="why-points">
+            <div class="point">
+              <h3>Personalized Matching</h3>
+              <p>We carefully match clients with support workers based on shared interests, personality compatibility, and specific care requirements.</p>
+            </div>
+            <div class="point">
+              <h3>Dedicated &amp; Passionate Team</h3>
+              <p>Our support workers are carefully selected for their compassion, expertise, and genuine commitment to making a positive difference.</p>
+            </div>
+            <div class="point">
+              <h3>"Yes-Mindset" Approach</h3>
+              <p>We believe in finding solutions, not excuses. Our positive, can-do attitude means we are always looking for ways to help you achieve your goals.</p>
+            </div>
+            <div class="point">
+              <h3>Local Expertise</h3>
+              <p>Deep understanding of local resources, community services, and opportunities that can enhance your quality of life.</p>
+            </div>
           </div>
-          <div class="card">
-            <form>
-              <input type="text" placeholder="Your name" />
-              <input type="email" placeholder="Your email" />
-              <input type="tel" placeholder="Your phone" />
-              <textarea placeholder="How can we help?"></textarea>
-              <button type="button" class="button">Send Enquiry</button>
-            </form>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <h2>What Our Clients Say</h2>
+          <p>Real stories from real people whose lives have been transformed by our personalised approach.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-body">
+              <h3 style="font-size:1.2rem; margin-bottom:0.2rem;">Mandy M</h3>
+              <div class="muted" style="margin-bottom:0.8rem;">Community Access Client</div>
+              <div class="stars">★★★★★</div>
+              <div class="quote">"Life's Good Disability Services has transformed my social life completely. My support worker understands my interests and has helped me join community groups I never thought possible. I finally feel connected!"</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3 style="font-size:1.2rem; margin-bottom:0.2rem;">Druh D</h3>
+              <div class="muted" style="margin-bottom:0.8rem;">SIL Participant</div>
+              <div class="stars">★★★★★</div>
+              <div class="quote">"The personalized approach at Life's Good made all the difference. They didn't just provide support - they believed in my independence goals and helped me achieve things I never thought I could do on my own."</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3 style="font-size:1.2rem; margin-bottom:0.2rem;">James I</h3>
+              <div class="muted" style="margin-bottom:0.8rem;">In-Home Support Client</div>
+              <div class="stars">★★★★★</div>
+              <div class="quote">"The team at Life's Good truly cares about my wellbeing. They help me maintain my independence at home while providing the support I need. Their yes-mindset approach means nothing is impossible."</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Take the first step towards greater independence and a more fulfilling life. Contact us today for a free consultation.</p>
+        <div class="cta-actions">
+          <a href="#contact" class="button" style="background: var(--accent); color: #fff;">Contact Us Now</a>
+          <a href="mailto:hola@lgds.com.au" class="button secondary">Email Us</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      © 2026 Your Business Name. All rights reserved.
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom: 1rem; color:#fff;">
+          <div class="brand-mark">LG</div>
+          <div class="brand-text">
+            <strong style="color:#fff;">Life's Good</strong>
+            <span style="color:rgba(255,255,255,0.75);">Disability Services</span>
+          </div>
+        </div>
+        <p>Empowering lives and fostering independence through personalized disability support services. We believe in people helping people, creating meaningful connections that transform lives.</p>
+        <div class="social-list">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.2rem; color:#fff;">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="mailto:hola@lgds.com.au">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.2rem; color:#fff;">Contact Us</h3>
+        <ul class="contact-list">
+          <li><strong style="color:#fff;">Phone:</strong><br><a href="tel:0450696350">0450 696 350</a></li>
+          <li><strong style="color:#fff;">Email:</strong><br><a href="mailto:hola@lgds.com.au">hola@lgds.com.au</a></li>
+          <li><strong style="color:#fff;">Address:</strong><br>45 Heyers Road<br>Grovedale, VIC</li>
+          <li><strong style="color:#fff;">Hours:</strong><br>Monday - Friday: 8am - 6pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-note">© 2026 Life's Good Disability Services. All rights reserved. | NDIS Registered Provider</div>
+      <div class="footer-note">Privacy Policy · Terms of Service · Accessibility</div>
     </div>
   </footer>
 </body>
